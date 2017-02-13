@@ -1,7 +1,8 @@
-import Globalize from 'globalize';
+//import Globalize from 'globalize';
+const Globalize = require('globalize');
+Globalize.locale('fr');
+const dateFormatter = Globalize.dateFormatter({datetime: 'full'});
 
-Globalize.locale('el');
-
-const dateFormatter = Globalize.dateFormatter({datetime: 'short'});
-
-console.log(dateFormatter(new Date()));
+const appElement = document.createElement('div');
+appElement.innerHTML = dateFormatter(new Date());
+document.getElementsByTagName('body')[0].appendChild(appElement);

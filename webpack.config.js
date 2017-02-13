@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const GlobalizePlugin = require('globalize-webpack-plugin');
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const production = process.env.NODE_ENV === 'production';
 
@@ -21,7 +22,7 @@ const entry = production
   }
   : './index.js'
 module.exports = {
-  devtool: 'eval',
+  devtool: 'cheap-source-map',
   entry,
   output: {
     path: path.join(__dirname, './dist'),
@@ -30,14 +31,15 @@ module.exports = {
   plugins: [
     new GlobalizePlugin({
       production,
-      developmentLocale: 'el',
+      developmentLocale: 'it',
       supportedLocales: ['en', 'el', 'de', 'fr', 'it'],
-      output: 'i18n/[locale].[hash].js'
+      output: 'i18n/[locale].[chunkhash].js'
     }),
     new CommonsChunkPlugin({
       names: ['vendor', 'manifest'],
       minChunks: Infinity,
-    })
+    }),
+    new HtmlWebpackPlugin()
   ],
   module: {
     rules: [

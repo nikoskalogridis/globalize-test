@@ -31,7 +31,7 @@ module.exports = {
   plugins: [
     new GlobalizePlugin({
       production,
-      developmentLocale: 'it',
+      developmentLocale: 'el',
       supportedLocales: ['en', 'el', 'de', 'fr', 'it'],
       output: 'i18n/[locale].[chunkhash].js'
     }),
@@ -50,12 +50,12 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              presets: [
-                [
-                  'es2015',
-                  {modules: false}
-                ]
-              ],
+              presets: ['es2015'],
+              //   [
+              //     'es2015',
+              //     {modules: false}
+              //   ]
+              // ],
               babelrc: false
             }
           }

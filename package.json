@@ -1,0 +1,24 @@
+{
+  "name": "glob-webpack-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:dev": "rimraf dist ; cross-env NODE_ENV=development webpack --config webpack.config.js",
+    "build:prod": "rimraf dist ; cross-env NODE_ENV=production webpack --config webpack.config.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.22.0",
+    "cldr-data": "^30.0.4",
+    "cross-env": "^3.1.4",
+    "globalize": "^1.2.2",
+    "globalize-webpack-plugin": "^0.3.9",
+    "rimraf": "^2.5.4",
+    "webpack": "^2.2.1"
+  }
+}
